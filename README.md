@@ -1,30 +1,31 @@
-# Azure File Uploader with .NET API
+# Automated-File-Uploader-and-Extraction-Platform
 
-A secure, scalable, and easy-to-use file upload service built using ASP.NET Core and Azure Blob Storage. This project allows uploading and retrieving files via a RESTful API, making it suitable for enterprise applications such as document repositories, media management, and more.
+This project is a cloud-native file upload and document extraction system built with .NET 8, Azure Blob Storage, API Management, and Logic Apps.
 
----
+## 🔧 Features
 
-## 🚀 Features
-
-- Upload files to Azure Blob Storage using .NET 8 Web API
-- Retrieve file URLs and metadata
-- Support for large files and different content types
-- Organized storage with folders/containers
-- Configurable Azure connection and storage settings via `appsettings.json`
-- Input validation and structured response handling
-- Error handling with proper status codes
-
----
+- 📤 Upload files (PDF, TXT) via ASP.NET Core Web API
+- ☁️ Files stored in Azure Blob Storage
+- ⚙️ Triggered Logic App on blob upload
+- 🧠 Text/PDF content extracted using Azure Form Recognizer
+- 🔐 API secured and exposed via Azure API Management (APIM)
 
 ## 🛠️ Tech Stack
 
-- ASP.NET Core 8 Web API  
-- Azure Blob Storage  
-- Azure.Storage.Blobs SDK  
-- C#  
-- RESTful API  
-- Visual Studio 2022  
+- .NET 8 (ASP.NET Core Web API)
+- Azure App Service
+- Azure Blob Storage
+- Azure Logic Apps
+- Azure API Management (APIM)
+- Azure Form Recognizer
 
----
+## 📦 Architecture
+
+```plaintext
+Client → APIM → ASP.NET Web API → Blob Storage
+                            ↓
+                     Trigger: Logic App
+                            ↓
+                   → Form Recognizer → Extracted JSON
 
 
