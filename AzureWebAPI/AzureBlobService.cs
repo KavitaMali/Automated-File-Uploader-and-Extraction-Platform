@@ -6,11 +6,14 @@ namespace AzureWebAPI
     {
         BlobServiceClient _blobServiceClient;
         BlobContainerClient _blobContainerClient;
-        string azureConnectionString = "DefaultEndpointsProtocol=https;AccountName=kbmstorage;AccountKey=OOtGXjZb/7SgpsIc3bLImNZ+OAoSn/31gUIMIHyEgRbj6WukMXu7ASk7YtMsUsiVAZOJ1xUwh+sE+AStWUm/gQ==;EndpointSuffix=core.windows.net";
-        public AzureBlobService()
+        
+        public AzureBlobService(IConfiguration configuration)
         {
-            _blobServiceClient = new BlobServiceClient(azureConnectionString);
-            _blobContainerClient = _blobServiceClient.GetBlobContainerClient("kbmstoragecontainer");
+            var connectionString = configuration["AzureBlobStorage:ConnectionString"];
+            var containerName = configuration["AzureBlobStorage:ContainerName"];
+
+            _blobServiceClient = new BlobServiceClient(connectionString);
+            _blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
         }
 
         public async Task<List<BlobContentInfo>> UploadFiles(List<IFormFile> files)
