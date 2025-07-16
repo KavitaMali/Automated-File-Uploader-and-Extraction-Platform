@@ -1,0 +1,48 @@
+How to use
+
+Upload File via Postman
+Method: POST
+
+URL: https://<your-apim>.azure-api.net/<route>/AzureBlob
+
+Header:
+
+vbnet
+Copy
+Edit
+Ocp-Apim-Subscription-Key: <your-key>
+Body: form-data
+
+Key: file
+
+Type: File
+
+Get Uploaded Blob List
+GET https://<your-apim>.azure-api.net/<route>/AzureBlob/BlobList
+
+🔍 Logic App
+Trigger: Blob created
+
+Steps:
+
+Get blob content
+
+Send to Azure Form Recognizer
+
+Parse and save extracted data
+
+Status: Fully automated, monitored via Logic App run history
+
+📘 API Documentation
+Swagger available at:
+
+arduino
+Copy
+Edit
+https://<your-app>.azurewebsites.net/swagger/index.html
+📎 Screenshots (optional)
+Logic App workflow screenshot
+
+APIM Test console
+
+Form Recognizer result
